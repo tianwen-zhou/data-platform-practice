@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fct_daily_account_activity
+    description: Daily activity per account, used by downstream reporting.
+    columns:
+      - name: account_id
+        tests: [not_null]
+      - name: business_date
+        tests: [not_null]
+      - name: transaction_count
+        tests: [not_null]

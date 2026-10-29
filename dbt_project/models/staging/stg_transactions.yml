@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: Deduplicated transactions with proper types.
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: account_id
+        tests: [not_null]
+      - name: channel
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["card", "eftpos", "online", "atm"]

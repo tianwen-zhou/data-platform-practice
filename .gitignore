@@ -1,0 +1,9 @@
+.venv/
+lake/
+dbt_project/target/
+dbt_project/logs/
+dbt_project/*.duckdb
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+__pycache__/
+.pytest_cache/
