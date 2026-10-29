@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Files landed in the lake by ingest/load_transactions.py
+    tables:
+      - name: transactions
+        description: One row per transaction as sent by the upstream system; may contain duplicates.
+        meta:
+          # dbt-duckdb reads the files in place. On Snowflake this would be an external stage or a
+          # table loaded by Snowpipe / COPY INTO.
+          external_location: "read_json_auto('{{ env_var('LAKE_ROOT', '../lake') }}/raw/transactions/*/*.jsonl')"

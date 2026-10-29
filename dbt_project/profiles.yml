@@ -1,0 +1,9 @@
+# Local profile: DuckDB file. For Snowflake you would add a second target with type: snowflake
+# (account, user, role, warehouse, database, schema) and run with --target snowflake.
+data_platform_practice:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'warehouse.duckdb') }}"
+      threads: 4
